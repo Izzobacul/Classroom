@@ -1,4 +1,4 @@
-#!/Users/izzobacul/dev/Classroom/env/bin/python
+#!./env/bin/python
 
 from __future__ import print_function
 import pickle
@@ -16,14 +16,13 @@ sdir = os.path.dirname(__file__)
 names = ['2nde C -- SNT', 'SECONDE', '2nde C', '2nde C English', '2e   C', 'seconde C', 'HG', 'SES-SECONDES- M. SARDOU', '2C', '2C matematicas', '2C Español', '2C Groupe1 Arts Plastiques', '2A-B-C-D-E-F-G']
 rnames = ['SNT', 'SVT', 'EPS', 'Inglés', 'Historia Nacional', 'Physique Chimie', 'Histoire Géo', 'SES', 'Math', 'Math PSU', 'Español', 'Arte', 'Música']
 
-with open(os.path.join(sdir, "tareas.html")) as txt:
-    html = BeautifulSoup(txt.read(), features="html.parser")
-    update = html.update
-
-update.string = "Actualizando..."
-
-with open(os.path.join(sdir, "tareas.html"), 'w') as txt:
-    txt.write(str(html))
+if os.path.exists(os.path.join(sdir, "tareas.html")):
+    with open(os.path.join(sdir, "tareas.html")) as txt:
+        html = BeautifulSoup(txt.read(), features="html.parser")
+        update = html.update
+        update.string = "Actualizando..."
+    with open(os.path.join(sdir, "tareas.html"), 'w') as txt:
+        txt.write(str(html))
 
 with open(os.path.join(sdir, "tareasbase.html")) as txt:
     html = BeautifulSoup(txt.read(), features="html.parser")
