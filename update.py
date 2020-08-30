@@ -1,4 +1,4 @@
-#!./env/bin/python
+#!/usr/bin/env
 
 from __future__ import print_function
 import pickle
